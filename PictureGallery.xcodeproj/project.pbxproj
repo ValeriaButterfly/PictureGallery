@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315F8AF9254352F600ED594C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 315F8AF8254352F600ED594C /* Alamofire */; };
 		318D9FA42543503F00097CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D9FA32543503F00097CBB /* AppDelegate.swift */; };
 		318D9FA62543503F00097CBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D9FA52543503F00097CBB /* SceneDelegate.swift */; };
 		318D9FA82543503F00097CBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D9FA72543503F00097CBB /* ViewController.swift */; };
@@ -33,12 +34,126 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315F8AF9254352F600ED594C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		315F8AFB2543538B00ED594C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		315F8AFC2543539F00ED594C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				315F8B092543548D00ED594C /* Modules */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		315F8AFE254353D600ED594C /* CollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				315F8B032543541F00ED594C /* Controller */,
+				315F8B022543541B00ED594C /* View */,
+				315F8AFF254353FC00ED594C /* Model */,
+			);
+			path = CollectionViewController;
+			sourceTree = "<group>";
+		};
+		315F8AFF254353FC00ED594C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		315F8B022543541B00ED594C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				318D9FA92543503F00097CBB /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		315F8B032543541F00ED594C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				318D9FA72543503F00097CBB /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		315F8B052543542F00ED594C /* OriginalPictureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				315F8B082543546200ED594C /* Controller */,
+				315F8B072543545F00ED594C /* View */,
+				315F8B062543545C00ED594C /* Model */,
+			);
+			path = OriginalPictureViewController;
+			sourceTree = "<group>";
+		};
+		315F8B062543545C00ED594C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		315F8B072543545F00ED594C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		315F8B082543546200ED594C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		315F8B092543548D00ED594C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				315F8AFE254353D600ED594C /* CollectionViewController */,
+				315F8B052543542F00ED594C /* OriginalPictureViewController */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		315F8B0A254354C200ED594C /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				318D9FAF2543504000097CBB /* Assets.xcassets */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		315F8B0B254354FA00ED594C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				315F8B0C2543551000ED594C /* CoreData */,
+				315F8AFB2543538B00ED594C /* Network */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		315F8B0C2543551000ED594C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				318D9FAC2543503F00097CBB /* PictureGallery.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		318D9F972543503F00097CBB = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +173,13 @@
 		318D9FA22543503F00097CBB /* PictureGallery */ = {
 			isa = PBXGroup;
 			children = (
+				315F8B0B254354FA00ED594C /* Core */,
+				315F8AFC2543539F00ED594C /* Presentation */,
+				315F8B0A254354C200ED594C /* SupportFiles */,
 				318D9FA32543503F00097CBB /* AppDelegate.swift */,
 				318D9FA52543503F00097CBB /* SceneDelegate.swift */,
-				318D9FA72543503F00097CBB /* ViewController.swift */,
-				318D9FA92543503F00097CBB /* Main.storyboard */,
-				318D9FAF2543504000097CBB /* Assets.xcassets */,
 				318D9FB12543504000097CBB /* LaunchScreen.storyboard */,
 				318D9FB42543504000097CBB /* Info.plist */,
-				318D9FAC2543503F00097CBB /* PictureGallery.xcdatamodeld */,
 			);
 			path = PictureGallery;
 			sourceTree = "<group>";
@@ -86,6 +200,9 @@
 			dependencies = (
 			);
 			name = PictureGallery;
+			packageProductDependencies = (
+				315F8AF8254352F600ED594C /* Alamofire */,
+			);
 			productName = PictureGallery;
 			productReference = 318D9FA02543503F00097CBB /* PictureGallery.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +230,9 @@
 				Base,
 			);
 			mainGroup = 318D9F972543503F00097CBB;
+			packageReferences = (
+				315F8AF7254352F600ED594C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 318D9FA12543503F00097CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -345,6 +465,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		315F8AF7254352F600ED594C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		315F8AF8254352F600ED594C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315F8AF7254352F600ED594C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		318D9FAC2543503F00097CBB /* PictureGallery.xcdatamodeld */ = {
