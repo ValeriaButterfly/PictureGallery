@@ -26,20 +26,23 @@ class ViewController: UIViewController {
         
         activityIndicator.startAnimating()
         
-        GetPhoto.getArray { [self] (response) in
-            guard let dataArray = response else {
-                self.alert()
-                return }
+        // GET ALL PICTURES FROM WEB INTO ARRAY
+        GetPhoto.getArray { [self] (response, error) in
+            if error != nil {
+                alert()
+                return
+            }
             
+            guard let dataArray = response else { return }
             
-            self.picturesArray = dataArray
+            picturesArray = dataArray
             
-            self.activityIndicator.stopAnimating()
+            activityIndicator.stopAnimating()
             
             CoreDataHelper.getImage(array: &savedPicturesArray)
             
-            self.collectionView.reloadData()
-            self.layoutCells()
+            collectionView.reloadData()
+            layoutCells()
 //            print(self.picturesArray)
             print("SAVED PICTURES = \(savedPicturesArray)")
         }
@@ -65,6 +68,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.statusLabel.textColor = cell.statusLabel.text == "on web" ? .red : .green
         
+        // GET PHOTO FOR CELL OF CURRENT INDEX
         GetPhoto.getImage(url: picturesArray[indexPath.row].thumbnailUrl) { (error, data)  in
             if error != nil {
                 self.alert()
@@ -88,6 +92,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let originalPictureVC = storyboard.instantiateViewController(identifier: "OriginalPictureViewController") as? OriginalPictureViewController else { return }
         
+        // DETERMING IF THE ORIGINAL PHOTO IS SAVED
         if savedPicturesArray.contains(where: { $0.id == picturesArray[indexPath.row].id }) {
             
             guard let index = savedPicturesArray.firstIndex(where: { $0.id == picturesArray[indexPath.row].id }) else { return }
@@ -98,10 +103,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             originalPictureVC.originalPhotoID = picturesArray[indexPath.row].id
         }
         
+        // UPDATE STATUS LABEL FOR PHOTO WHICH CHOOSEN BEFORE
         originalPictureVC.delegate = { [self] text in
             print(text)
-            CoreDataHelper.getImage(array: &self.savedPicturesArray)
-            self.collectionView.reloadItems(at: [indexPath])
+            CoreDataHelper.getImage(array: &savedPicturesArray)
+            collectionView.reloadItems(at: [indexPath])
         }
         
         present(originalPictureVC, animated: true, completion: nil)
@@ -118,6 +124,6 @@ private extension ViewController {
         layout.minimumInteritemSpacing = 5.0
         layout.minimumLineSpacing = 5.0
         layout.itemSize = CGSize(width: (UIScreen.main.bounds.size.width - 40)/2, height: ((UIScreen.main.bounds.size.width - 40)/2))
-        collectionView!.collectionViewLayout = layout
+        collectionView.collectionViewLayout = layout
     }
 }

@@ -17,29 +17,21 @@ class GetPhoto {
     
     static let url = "http://jsonplaceholder.typicode.com/photos"
     
-    static let headers: HTTPHeaders = [
-        "": ""
-    ]
-    
-    static func getArray(completion: @escaping ([GetPhotoResponse]?)->()) {
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.prettyPrinted, headers: headers, interceptor: nil, requestModifier: nil).responseString { (response) in
+    static func getArray(completion: @escaping ([GetPhotoResponse]?, NetworkError?)->()) {
+        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.prettyPrinted, headers: nil, interceptor: nil, requestModifier: nil).responseString { (response) in
             guard let data = response.data,
                   let response = response.response else { return }
             
-//            guard let stringData = String(data: data, encoding: .utf8) else { return }
-            
-//            print(stringData)
-            
             if response.statusCode != 200 {
                 print("error")
-                completion(nil)
+                completion(nil, NetworkError.BadStatusCode)
                 return
             }
             
             do {
                 let responseArray = try JSONDecoder().decode([GetPhotoResponse].self, from: data)
                 DispatchQueue.main.async {
-                    completion(responseArray)
+                    completion(responseArray, nil)
                 }
             } catch {
                 print(error.localizedDescription)

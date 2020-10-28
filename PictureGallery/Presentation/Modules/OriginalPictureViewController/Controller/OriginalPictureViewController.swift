@@ -24,6 +24,7 @@ class OriginalPictureViewController: UIViewController {
             GetPhoto.getImage(url: url) { (error, data) in
                 if error != nil {
                     self.alert()
+                    self.originalImageView.image = UIImage(named: "placeholder")
                     return
                 }
                 

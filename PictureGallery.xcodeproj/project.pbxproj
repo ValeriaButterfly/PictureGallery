@@ -75,16 +75,8 @@
 			children = (
 				315F8B032543541F00ED594C /* Controller */,
 				315F8B022543541B00ED594C /* View */,
-				315F8AFF254353FC00ED594C /* Model */,
 			);
 			path = CollectionViewController;
-			sourceTree = "<group>";
-		};
-		315F8AFF254353FC00ED594C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		315F8B022543541B00ED594C /* View */ = {
@@ -108,24 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				315F8B082543546200ED594C /* Controller */,
-				315F8B072543545F00ED594C /* View */,
-				315F8B062543545C00ED594C /* Model */,
 			);
 			path = OriginalPictureViewController;
-			sourceTree = "<group>";
-		};
-		315F8B062543545C00ED594C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		315F8B072543545F00ED594C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		315F8B082543546200ED594C /* Controller */ = {
